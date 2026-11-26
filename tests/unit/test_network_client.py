@@ -69,6 +69,17 @@ def test_empty_host(host: str, connection_mock: MagicMock) -> None:
     connection_mock.assert_not_called()
 
 
+@pytest.mark.parametrize(
+    "host",
+    [None, 123, 1.5, True, b"example.invalid", [], {}],
+    ids=["none", "integer", "float", "boolean", "bytes", "list", "dict"],
+)
+def test_invalid_host_type(host: object, connection_mock: MagicMock) -> None:
+    with pytest.raises(ValueError, match="Host must be a nonempty string"):
+        NetworkClient().check_tcp_port(host, 12345)  # type: ignore[arg-type]
+    connection_mock.assert_not_called()
+
+
 @pytest.mark.parametrize("port", [0, -1, 65536, True, 1.5, "80"])
 def test_invalid_port(port: object, connection_mock: MagicMock) -> None:
     with pytest.raises(ValueError, match="Port"):

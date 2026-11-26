@@ -90,6 +90,10 @@ and CI workflows are deferred to NET-007-08. Generated reports are ignored.
 
 ## Next steps
 
-Owner review precedes committing or pushing NET-007-02. NET-007-03 verifies and
-documents the physical lab locally. Protocol coverage, UI automation, physical
-regression, reporting, and CI follow the sequence in `AGENTS.md`.
+NET-007-02 is under review in [PR #2](https://github.com/art8888m/network-qa-automation-framework/pull/2).
+Commit and push review fixes to `feature/NET-007-02-framework-setup` to update
+the existing pull request. Re-run the default test suite and dependency checks
+before pushing. Merge into `main` only after review and explicit owner approval.
+After merging, NET-007-03 verifies and documents the physical lab locally.
+Protocol coverage, UI automation, physical regression, reporting, and CI follow
+the sequence in `AGENTS.md`.

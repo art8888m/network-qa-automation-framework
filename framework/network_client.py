@@ -17,8 +17,8 @@ class NetworkClient:
 
     def check_tcp_port(self, host: str, port: int) -> bool:
         """Return False for socket failures; raise ValueError for bad inputs."""
-        if not host.strip():
-            raise ValueError("Host must not be empty.")
+        if not isinstance(host, str) or not host.strip():
+            raise ValueError("Host must be a nonempty string.")
         if isinstance(port, bool) or not isinstance(port, int):
             raise ValueError("Port must be an integer between 1 and 65535.")
         if not 1 <= port <= 65535:
