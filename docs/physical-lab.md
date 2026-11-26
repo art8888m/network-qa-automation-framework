@@ -51,11 +51,17 @@ ThinkPad T470, testing devices sequentially. The following results are supplied
 by the owner; the automation agent did not rerun physical tests during PR
 preparation. They supplement the earlier baseline observations above.
 
-| Scenario | TCP 80 | TCP 443 | Actual pytest result |
+| Scenario | TCP 80 test | TCP 443 test | Pytest outcome |
 | --- | --- | --- | --- |
-| TECNO TR118 connected | Expected True: PASSED | Expected True: PASSED | 2 passed in 0.07s |
-| TP-Link TL-WR740N connected | Expected True: PASSED | Expected False: PASSED | 2 passed in 2.13s |
-| TP-Link disconnected (intentional failure injection) | FAILED: connection timed out | Setup ERROR: known-open prerequisite port 80 unreachable; negative expectation not evaluated | 1 failed, 1 error in 6.25s |
+| TECNO TR118 connected | PASS — connection established as expected | PASS — connection established as expected | **2 passed** in 0.07s |
+| TP-Link TL-WR740N connected | PASS — connection established as expected | PASS — connection did not establish, as expected | **2 passed** in 2.13s |
+| TP-Link deliberately disconnected (failure injection) | **FAILED** — connection timed out | **ERROR during setup** — test did **not** probe TCP 443 | **1 failed, 1 error** in 6.25s |
+
+**Why TCP 443 shows a setup ERROR in the disconnected scenario:** the negative
+TCP 443 test first probes the profile's known-open TCP **80** as a reachability
+prerequisite. That prerequisite timed out, so the negative TCP 443 connection was
+not attempted. If TCP 80 is unreachable, this case must report a setup ERROR
+rather than PASS. The ERROR is not evidence that TCP 443 was tested or refused.
 
 The disconnected scenario successfully validated the safeguard by producing
 the expected nonzero pytest result. Its FAILED and ERROR outcomes remain
