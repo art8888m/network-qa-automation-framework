@@ -226,6 +226,7 @@ __marimo__/
 .idea/
 config/*.local.yaml
 config/*.local.yml
+config/devices.yaml
 allure-results/
 allure-report/
 test-results/
