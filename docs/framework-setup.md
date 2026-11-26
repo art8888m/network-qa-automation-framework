@@ -38,9 +38,11 @@ diagnose the target, interface, firewall, DNS, and port when a smoke test fails.
 Socket timeouts apply to connection attempts, not a strict overall deadline:
 DNS resolution and multiple address attempts can extend elapsed time.
 
-The YAML profile is illustrative and is not parsed in this task. UI dependencies
-are optional, and no UI implementation is included. Physical devices, browser
-execution, Allure report rendering, and CI remain unvalidated/deferred.
+NET-007-02 used an illustrative profile; NET-007-03 adds validated profile loading
+as described in [physical lab configuration](physical-lab.md). UI dependencies
+are optional, and no UI implementation is included. Physical execution was not
+validated in NET-007-02; see the linked NET-007-03 evidence for later owner runs.
+Browser execution, Allure report rendering, and CI remain unvalidated/deferred.
 
 ## Dependency verification
 

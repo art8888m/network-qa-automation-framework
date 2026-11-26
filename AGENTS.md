@@ -13,6 +13,7 @@ Build a reproducible Python network QA portfolio MVP (NET-007), targeting early 
 - Verify actual device IPs, ports, firmware capabilities and network interface before testing. Do not assume HTTPS, API, WAN or reboot support.
 - Default to read-only tests; configuration changes and disruptive tests require explicit opt-in, isolation and recovery plans.
 - Only test authorized targets. Never commit credentials, SIM identifiers, private network configurations or unsanitized captures. Keep local configuration and secrets ignored. Use synthetic examples in public docs.
+- Public repository content, including README files, documentation, code comments, commit messages, pull request descriptions, and review comments, must not contain links to the owner's private Trello workspace, boards, or cards. Internal task identifiers such as NET-007-03 are allowed.
 
 ## Testing and evidence
 - Cover ICMP/TCP connectivity, DNS, DHCP lease/configuration, HTTP and supported TLS, controlled negative cases and read-only management UI.
