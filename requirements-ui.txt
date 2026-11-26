@@ -1,0 +1,7 @@
+# Optional UI dependencies; includes the tested core dependency set.
+-r requirements.txt
+greenlet==3.5.6
+playwright==1.65.2
+pytest-playwright==0.10.0
+python-slugify==9.2.0
+text-unidecode==1.3

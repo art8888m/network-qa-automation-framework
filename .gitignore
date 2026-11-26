@@ -221,3 +221,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local IDE, device configuration, reports, and packet captures
+.idea/
+config/*.local.yaml
+config/*.local.yml
+allure-results/
+allure-report/
+test-results/
+playwright-report/
+*.pcap
+*.pcapng

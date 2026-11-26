@@ -1,0 +1,8 @@
+# Illustrative only; not loaded automatically. Replace with a verified,
+# authorized target in an ignored config/devices.local.yaml for future work.
+# 192.0.2.1 is a reserved documentation address, not a lab router.
+devices:
+  example_device:
+    host: "192.0.2.1"
+    tcp_port: 12345
+    timeout: 3.0
